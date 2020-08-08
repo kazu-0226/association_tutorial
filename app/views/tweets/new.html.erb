@@ -1,0 +1,8 @@
+<h1>Tweet#new</h1>
+<%= form_with model:@tweet do |f| %>
+    <p>
+        <%= f.label :body,"ツイート" %>
+        <%= f.text_field :body %>
+    </p>
+    <%= f.submit %>
+<% end %>
