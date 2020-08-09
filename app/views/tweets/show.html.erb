@@ -3,3 +3,15 @@
 
 <p><span>email:</span><%= @user.email %></p>
 <p><span>ツイート内容:</span><%= @tweet.body %></p>
+
+<p>comment</p>
+<% @tweet.comments.each do |comment| %>
+  <%= comment.body %>
+  <%= link_to "destroy", tweet_comment_path(comment.tweet, comment), method: :delete %>
+<% end %>
+
+
+<%= form_with(model:[@tweet, @comment]) do |f| %>
+        <%= f.text_field :body %>
+        <%= f.submit %>
+<% end %>
